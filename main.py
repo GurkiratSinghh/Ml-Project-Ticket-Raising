@@ -28,19 +28,19 @@ def print_result(intent, team, email_status):
 def main():
     print_header()
 
-    user_query = input("👉 Enter customer query:\n> ").strip()
+    user_query = input(">> Enter customer query:\n> ").strip()
 
     if not user_query:
-        print("\n❗ Query cannot be empty. Exiting.\n")
+        print("\n[!] Query cannot be empty. Exiting.\n")
         return
 
-    print("\n⏳ Processing query...\n")
+    print("\nProcessing query...\n")
 
     try:
         intent, team = predict_query(user_query)
 
         if intent == "Unclear":
-            print("\n⚠️ Please provide more details so we can assist you.\n")
+            print("\n[Warning] Please provide more details so we can assist you.\n")
             return
 
         email_body = generate_email(user_query, intent, team)
@@ -60,7 +60,7 @@ def main():
         print_result(intent, team, email_status)
 
     except Exception as e:
-        print("\n❌ Something went wrong while processing the request.")
+        print("\n[Error] Something went wrong while processing the request.")
         print("Details:", e)
 
 
