@@ -1,3 +1,5 @@
+#Logistic regression model
+
 from sklearn.linear_model import LogisticRegression
 
 def train_intent_model(X_train_vec, y_train):
